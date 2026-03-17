@@ -18,6 +18,7 @@ export default async function HomePage() {
             <h1 className="max-w-3xl text-5xl leading-tight tracking-tight text-ink sm:text-6xl">
               {bookConfig.title}
             </h1>
+            <p className="max-w-2xl text-2xl italic leading-8 text-ink/74">by {bookConfig.author}</p>
             <p className="max-w-2xl text-xl leading-8 text-ink/78">{bookConfig.subtitle}</p>
             <p className="max-w-2xl text-base leading-8 text-ink/68">
               The full manuscript now lives here as a citable, collaborative, multilingual book

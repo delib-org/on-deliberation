@@ -88,6 +88,9 @@ export default async function ChapterPage({ params }: PageProps) {
               </span>
             </div>
             <h1 className="mt-4 text-5xl tracking-tight text-ink sm:text-6xl">{chapter.title}</h1>
+            <p className="mt-3 text-2xl italic leading-8 text-ink/74">
+              {locale === "he" ? `מאת ${bookConfig.author}` : `by ${bookConfig.author}`}
+            </p>
             <p className="mt-4 max-w-3xl text-lg leading-8 text-ink/70">{chapter.description}</p>
             <div className="mt-6 flex flex-wrap gap-3 text-xs uppercase tracking-[0.22em]">
               <span className="rounded-full border border-line px-3 py-2 text-ink/62">
