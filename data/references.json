@@ -1,31 +1,146 @@
 {
-  "kant1781": {
-    "id": "kant1781",
-    "author": "Kant, Immanuel",
-    "year": "1781",
-    "title": "Critique of Pure Reason",
-    "publisher": "Johann Friedrich Hartknoch"
+  "axelrod1984theevolution": {
+    "id": "axelrod1984theevolution",
+    "author": "Axelrod, R.",
+    "year": "1984",
+    "title": "The Evolution of Cooperation",
+    "source": "Basic Books",
+    "url": ""
   },
-  "popper1959": {
-    "id": "popper1959",
-    "author": "Popper, Karl",
-    "year": "1959",
-    "title": "The Logic of Scientific Discovery",
-    "publisher": "Hutchinson"
+  "baumeister2007thestrength": {
+    "id": "baumeister2007thestrength",
+    "author": "Baumeister, R. F., Vohs, K. D., & Tice, D. M.",
+    "year": "2007",
+    "title": "The strength model of self-control",
+    "source": "Current Directions in Psychological Science, 16(6), 351–355",
+    "url": ""
   },
-  "ostrom1990": {
-    "id": "ostrom1990",
-    "author": "Ostrom, Elinor",
-    "year": "1990",
-    "title": "Governing the Commons",
-    "publisher": "Cambridge University Press"
+  "baumeister1998egodepletion": {
+    "id": "baumeister1998egodepletion",
+    "author": "Baumeister, R. F., Bratslavsky, E., Muraven, M., & Tice, D. M.",
+    "year": "1998",
+    "title": "Ego depletion: Is the active self a limited resource",
+    "source": "Journal of Personality and Social Psychology, 74(5), 1252–1265",
+    "url": ""
   },
-  "kahneman2011": {
-    "id": "kahneman2011",
-    "author": "Kahneman, Daniel",
+  "baudrillard1981simulacraand": {
+    "id": "baudrillard1981simulacraand",
+    "author": "Baudrillard, J.",
+    "year": "1981",
+    "title": "Simulacra and Simulation",
+    "source": "Éditions Galilée",
+    "url": ""
+  },
+  "derrida1967ofgrammatology": {
+    "id": "derrida1967ofgrammatology",
+    "author": "Derrida, J.",
+    "year": "1967",
+    "title": "Of Grammatology",
+    "source": "Johns Hopkins University Press",
+    "url": ""
+  },
+  "foucault1969thearchaeology": {
+    "id": "foucault1969thearchaeology",
+    "author": "Foucault, M.",
+    "year": "1969",
+    "title": "The Archaeology of Knowledge",
+    "source": "Gallimard",
+    "url": ""
+  },
+  "frank1985choosingthe": {
+    "id": "frank1985choosingthe",
+    "author": "Frank, R. H.",
+    "year": "1985",
+    "title": "Choosing the Right Pond: Human Behavior and the Quest for Status",
+    "source": "Oxford University Press",
+    "url": ""
+  },
+  "husserl1931cartesianmeditations": {
+    "id": "husserl1931cartesianmeditations",
+    "author": "Husserl, E.",
+    "year": "1931",
+    "title": "Cartesian Meditations",
+    "source": "Martinus Nijhoff",
+    "url": ""
+  },
+  "kahneman2011thinkingfast": {
+    "id": "kahneman2011thinkingfast",
+    "author": "Kahneman, D.",
     "year": "2011",
     "title": "Thinking, Fast and Slow",
-    "publisher": "Farrar, Straus and Giroux"
+    "source": "Farrar, Straus and Giroux",
+    "url": ""
+  },
+  "kay2023motivatedegalitarianism": {
+    "id": "kay2023motivatedegalitarianism",
+    "author": "Kay, A. C., Ponce de Leon, R., Ho, A. K., & Kteily, N. S.",
+    "year": "2023",
+    "title": "Motivated egalitarianism",
+    "source": "Current Directions in Psychological Science, 32(4), 293–299",
+    "url": ""
+  },
+  "li2018amotivationalcognitive": {
+    "id": "li2018amotivationalcognitive",
+    "author": "Li, H., Li, F., & Chen, T.",
+    "year": "2018",
+    "title": "A motivational-cognitive model of creativity and the role of autonomy",
+    "source": "Journal of Business Research, 92, 179–188",
+    "url": ""
+  },
+  "lyotard1979thepostmodern": {
+    "id": "lyotard1979thepostmodern",
+    "author": "Lyotard, J. F.",
+    "year": "1979",
+    "title": "The Postmodern Condition: A Report on Knowledge",
+    "source": "University of Minnesota Press",
+    "url": ""
+  },
+  "marx1844privateproperty": {
+    "id": "marx1844privateproperty",
+    "author": "Marx, K.",
+    "year": "1844",
+    "title": "Private property and communism",
+    "source": "",
+    "url": "https://www.marxists.org/archive/marx/works/1844/manuscripts/comm.htm"
+  },
+  "mcluhan1964understandingmedia": {
+    "id": "mcluhan1964understandingmedia",
+    "author": "McLuhan, M.",
+    "year": "1964",
+    "title": "Understanding Media: The Extensions of Man",
+    "source": "McGraw-Hill",
+    "url": ""
+  },
+  "popper1959thelogic": {
+    "id": "popper1959thelogic",
+    "author": "Popper, K.",
+    "year": "1959",
+    "title": "The Logic of Scientific Discovery",
+    "source": "Hutchinson",
+    "url": ""
+  },
+  "rawls1971atheory": {
+    "id": "rawls1971atheory",
+    "author": "Rawls, J.",
+    "year": "1971",
+    "title": "A Theory of Justice",
+    "source": "Harvard University Press",
+    "url": ""
+  },
+  "rorty1979philosophyand": {
+    "id": "rorty1979philosophyand",
+    "author": "Rorty, R.",
+    "year": "1979",
+    "title": "Philosophy and the Mirror of Nature",
+    "source": "Princeton University Press",
+    "url": ""
+  },
+  "tessler2024aican": {
+    "id": "tessler2024aican",
+    "author": "Tessler, M. H., et al.",
+    "year": "2024",
+    "title": "AI can help humans find common ground in democratic deliberation",
+    "source": "Science, 386",
+    "url": ""
   }
 }
-

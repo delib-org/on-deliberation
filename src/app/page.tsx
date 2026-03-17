@@ -17,9 +17,9 @@ export default async function HomePage() {
             </h1>
             <p className="max-w-2xl text-xl leading-8 text-ink/78">{bookConfig.subtitle}</p>
             <p className="max-w-2xl text-base leading-8 text-ink/68">
-              This scaffold turns a manuscript into a citable, collaborative, multilingual book site.
-              Chapters live as MDX, bibliography lives in shared data, and validation runs in CI on
-              every push.
+              The full manuscript now lives here as a citable, collaborative, multilingual book
+              site. Chapters are published from MDX, bibliography lives in shared data, and
+              validation runs in CI on every push.
             </p>
           </div>
           <div className="rounded-[1.75rem] border border-line bg-white/45 p-6">
@@ -86,4 +86,3 @@ export default async function HomePage() {
     </main>
   );
 }
-

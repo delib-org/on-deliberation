@@ -1,6 +1,6 @@
 # On Deliberation
 
-Docs-as-code scaffold for *On Deliberation* by Tal Yaron. The repository is structured as a "Living Book": manuscript chapters live as MDX files, academic metadata lives in `/data`, and the rendering plus validation logic lives in `/src`.
+Docs-as-code repository for *On Deliberation* by Tal Yaron. The repository is structured as a "Living Book": manuscript chapters live as MDX files, academic metadata lives in `/data`, and the rendering plus validation logic lives in `/src`.
 
 ## Folder Hierarchy
 
@@ -36,6 +36,7 @@ Docs-as-code scaffold for *On Deliberation* by Tal Yaron. The repository is stru
 
 ```bash
 npm install
+npm run import:manuscript -- /absolute/path/to/on_deliberation_proofread.md
 npm run dev
 npm run validate
 npm run build

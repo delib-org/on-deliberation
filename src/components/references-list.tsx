@@ -24,10 +24,22 @@ export function ReferencesList({ locale = "en" }: ReferencesListProps) {
           dir={locale === "he" ? "rtl" : "ltr"}
         >
           <span className="font-medium">{reference.author}</span> ({reference.year}).{" "}
-          <em>{reference.title}</em>. {reference.publisher}.
+          <em>{reference.title}</em>
+          {reference.source ? <>. {reference.source}</> : null}
+          {reference.url ? (
+            <>
+              {" "}
+              <a
+                href={reference.url}
+                className="break-all text-accent underline-offset-2 hover:underline"
+              >
+                {reference.url}
+              </a>
+            </>
+          ) : null}
+          .
         </li>
       ))}
     </ol>
   );
 }
-

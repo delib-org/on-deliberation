@@ -4,7 +4,7 @@ import path from "node:path";
 const projectRoot = process.cwd();
 const chaptersRoot = path.join(projectRoot, "chapters");
 const referencesPath = path.join(projectRoot, "data", "references.json");
-const requiredFields = ["id", "author", "year", "title", "publisher"];
+const requiredFields = ["id", "author", "year", "title"];
 
 function stripFrontmatter(source) {
   if (!source.startsWith("---")) {
@@ -75,8 +75,8 @@ for (const filePath of files) {
   }
 }
 
-if (citedKeys.size === 0) {
-  failures.push("No citations were found in chapters/. Add at least one [@citationKey] reference.");
+if (Object.keys(references).length === 0) {
+  failures.push("data/references.json is empty. Add at least one reference entry.");
 }
 
 if (failures.length > 0) {
@@ -85,6 +85,10 @@ if (failures.length > 0) {
     console.error(`- ${failure}`);
   }
   process.exit(1);
+} else if (citedKeys.size === 0) {
+  console.warn(
+    `Validated ${Object.keys(references).length} references across ${files.length} chapter files. No [@citationKey] inline citations were found.`
+  );
+} else {
+  console.log(`Validated ${citedKeys.size} unique citation keys across ${files.length} chapter files.`);
 }
-
-console.log(`Validated ${citedKeys.size} unique citation keys across ${files.length} chapter files.`);

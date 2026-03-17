@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "serve out",
     "lint": "next lint",
+    "import:manuscript": "node src/scripts/import-manuscript.mjs",
     "check:links": "node src/scripts/check-links.mjs",
     "check:citations": "node src/scripts/check-citations.mjs",
     "validate": "npm run check:links && npm run check:citations && npm run lint"
