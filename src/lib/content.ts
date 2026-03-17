@@ -8,6 +8,7 @@ import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import { isLocale, type Locale } from "@/data/book";
+import references from "@/data/references.json";
 import { getMDXComponents } from "@/src/lib/mdx";
 
 const CHAPTER_ROOT = path.join(process.cwd(), "chapters");
@@ -28,6 +29,7 @@ export type ChapterSummary = ChapterFrontmatter & {
 export type Chapter = ChapterSummary & {
   content: React.ReactNode;
   citations: string[];
+  references: string[];
 };
 
 function chapterDirectory(locale: Locale) {
@@ -44,6 +46,124 @@ function replaceCitations(source: string) {
 
 function extractCitationIds(source: string) {
   return Array.from(source.matchAll(/\[@([a-zA-Z0-9:_-]+)\]/g)).map((match) => match[1]);
+}
+
+function normalizeText(value: string) {
+  return value
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[*_[\]()`]/g, " ")
+    .replace(/https?:\/\/\S+/g, " ")
+    .replace(/[^a-z0-9\s]+/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+}
+
+function escapeRegex(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function leadSurname(author: string) {
+  return author.split(",")[0]?.trim() ?? "";
+}
+
+function stripFrontmatter(source: string) {
+  if (!source.startsWith("---")) {
+    return source;
+  }
+
+  const endIndex = source.indexOf("\n---", 3);
+  if (endIndex === -1) {
+    return source;
+  }
+
+  return source.slice(endIndex + 4).trimStart();
+}
+
+function parseFootnotes(source: string) {
+  const definitions = new Map<string, string>();
+
+  for (const match of source.matchAll(/^\[\^([0-9]+)\]:\s+(.+)$/gm)) {
+    definitions.set(match[1], match[2].trim());
+  }
+
+  return definitions;
+}
+
+function extractUsedFootnotes(source: string) {
+  return Array.from(new Set(Array.from(source.matchAll(/\[\^([0-9]+)\](?!:)/g), (match) => match[1])));
+}
+
+function matchReferenceFromFootnote(definition: string) {
+  const normalizedDefinition = normalizeText(definition);
+
+  if (!normalizedDefinition) {
+    return null;
+  }
+
+  const matches = Object.values(references).filter((reference) => {
+    const normalizedTitle = normalizeText(reference.title);
+    const normalizedSurname = normalizeText(leadSurname(reference.author));
+
+    return (
+      normalizedDefinition.includes(reference.year.toLowerCase()) &&
+      normalizedDefinition.includes(normalizedTitle) &&
+      (normalizedSurname.length < 4 || normalizedDefinition.includes(normalizedSurname))
+    );
+  });
+
+  return matches[0]?.id ?? null;
+}
+
+function detectReferencedWorks(source: string) {
+  const content = stripFrontmatter(source);
+  const explicitCitations = extractCitationIds(content);
+  const detected = new Set(explicitCitations);
+  const footnotes = parseFootnotes(content);
+  const usedFootnotes = extractUsedFootnotes(content);
+  const contentWithoutFootnotes = content.replace(/^\[\^([0-9]+)\]:\s+.+$/gm, "");
+  const normalizedContent = normalizeText(contentWithoutFootnotes);
+
+  for (const footnoteId of usedFootnotes) {
+    const definition = footnotes.get(footnoteId);
+
+    if (!definition) {
+      continue;
+    }
+
+    const referenceId = matchReferenceFromFootnote(definition);
+
+    if (referenceId) {
+      detected.add(referenceId);
+    }
+  }
+
+  for (const reference of Object.values(references)) {
+    if (detected.has(reference.id)) {
+      continue;
+    }
+
+    const normalizedTitle = normalizeText(reference.title);
+    const surname = leadSurname(reference.author);
+    const titleMatch = normalizedTitle.length > 12 && normalizedContent.includes(normalizedTitle);
+    const surnameMatch =
+      surname.length >= 4 &&
+      new RegExp(`\\b${escapeRegex(surname)}\\b`, "g").test(contentWithoutFootnotes);
+
+    if (titleMatch || surnameMatch) {
+      detected.add(reference.id);
+    }
+  }
+
+  return Array.from(detected).sort((left, right) => {
+    const leftEntry = references[left as keyof typeof references];
+    const rightEntry = references[right as keyof typeof references];
+    const leftAuthor = leftEntry ? leadSurname(leftEntry.author) : left;
+    const rightAuthor = rightEntry ? leadSurname(rightEntry.author) : right;
+
+    return leftAuthor.localeCompare(rightAuthor) || left.localeCompare(right);
+  });
 }
 
 async function readDirectory(locale: Locale) {
@@ -101,6 +221,7 @@ export async function getChapter(locale: Locale, slug: string): Promise<Chapter 
   try {
     const rawSource = await fs.readFile(file, "utf8");
     const citations = extractCitationIds(rawSource);
+    const detectedReferences = detectReferencedWorks(rawSource);
     const transformedSource = replaceCitations(rawSource);
 
     const { content, frontmatter } = await compileMDX<ChapterFrontmatter>({
@@ -127,6 +248,7 @@ export async function getChapter(locale: Locale, slug: string): Promise<Chapter 
       locale,
       status: frontmatter.status,
       citations,
+      references: detectedReferences,
       content
     };
   } catch (error) {

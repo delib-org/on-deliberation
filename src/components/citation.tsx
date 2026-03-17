@@ -18,13 +18,17 @@ export function Citation({ id, locale }: CitationProps) {
     return <span className="rounded bg-red-100 px-2 py-0.5 text-red-700">[{id}]</span>;
   }
 
+  const label = `${shortAuthor(entry.author)}, ${entry.year}`;
+  const description = `${entry.author} (${entry.year}). ${entry.title}`;
+
   return (
     <Link
       href={`/${locale}/references#${id}`}
-      className="rounded-full border border-line px-2 py-0.5 text-[0.85em] no-underline transition hover:border-accent hover:text-accent"
+      title={description}
+      aria-label={description}
+      className="rounded-full border border-line bg-white/70 px-3 py-1 text-[0.85em] no-underline transition hover:border-accent hover:text-accent"
     >
-      {shortAuthor(entry.author)}, {entry.year}
+      {label}
     </Link>
   );
 }
-

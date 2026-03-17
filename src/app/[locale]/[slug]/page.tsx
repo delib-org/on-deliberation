@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { bookConfig, isLocale } from "@/data/book";
 import { BookToc } from "@/src/components/book-toc";
+import { Citation } from "@/src/components/citation";
 import { ChapterPagination } from "@/src/components/chapter-pagination";
 import { Feedback } from "@/src/components/feedback";
 import { getAllChapterParams, getAllChapters, getChapter } from "@/src/lib/content";
@@ -62,14 +63,16 @@ export default async function ChapterPage({ params }: PageProps) {
       ? {
           contents: "תוכן",
           status: "סטטוס",
-          citations: "ציטוטים",
+          citations: "מקורות",
+          sources: "מחקרים ומקורות בפרק זה",
           previous: "הקודם",
           next: "הבא"
         }
       : {
           contents: "Contents",
           status: "Status",
-          citations: "Citations",
+          citations: "Sources",
+          sources: "Research cited in this chapter",
           previous: "Previous",
           next: "Next"
         };
@@ -97,9 +100,19 @@ export default async function ChapterPage({ params }: PageProps) {
                 {ui.status}: {chapter.status}
               </span>
               <span className="rounded-full border border-line px-3 py-2 text-ink/62">
-                {ui.citations}: {chapter.citations.length}
+                {ui.citations}: {chapter.references.length}
               </span>
             </div>
+            {chapter.references.length > 0 ? (
+              <div className="mt-6 space-y-3">
+                <p className="text-xs uppercase tracking-[0.22em] text-ink/56">{ui.sources}</p>
+                <div className="flex flex-wrap gap-2">
+                  {chapter.references.map((referenceId) => (
+                    <Citation key={referenceId} id={referenceId} locale={locale} />
+                  ))}
+                </div>
+              </div>
+            ) : null}
           </section>
 
           <article className="panel rounded-[2rem] px-8 py-10 lg:px-12 lg:py-12">
