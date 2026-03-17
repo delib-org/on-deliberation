@@ -81,7 +81,12 @@ export default async function ChapterPage({ params }: PageProps) {
 
         <div className="space-y-6" dir={localeConfig.dir} lang={localeConfig.code}>
           <section className="panel rounded-[2rem] p-8 lg:p-10">
-            <p className="text-xs uppercase tracking-[0.3em] text-ink/48">{localeConfig.label}</p>
+            <div className="flex flex-wrap items-center gap-3">
+              <p className="text-xs uppercase tracking-[0.3em] text-ink/48">{localeConfig.label}</p>
+              <span className="rounded-full border border-line bg-white/45 px-3 py-1 text-[0.7rem] uppercase tracking-[0.24em] text-ink/58">
+                {locale === "he" ? `נכתב על ידי ${bookConfig.author}` : `By ${bookConfig.author}`}
+              </span>
+            </div>
             <h1 className="mt-4 text-5xl tracking-tight text-ink sm:text-6xl">{chapter.title}</h1>
             <p className="mt-4 max-w-3xl text-lg leading-8 text-ink/70">{chapter.description}</p>
             <div className="mt-6 flex flex-wrap gap-3 text-xs uppercase tracking-[0.22em]">

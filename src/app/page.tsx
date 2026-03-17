@@ -12,6 +12,9 @@ export default async function HomePage() {
         <p className="mb-4 text-xs uppercase tracking-[0.3em] text-ink/55">Living Book Platform</p>
         <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
           <div className="space-y-5">
+            <p className="inline-flex rounded-full border border-line bg-white/45 px-4 py-2 text-xs uppercase tracking-[0.24em] text-ink/62">
+              Written by {bookConfig.author}
+            </p>
             <h1 className="max-w-3xl text-5xl leading-tight tracking-tight text-ink sm:text-6xl">
               {bookConfig.title}
             </h1>
@@ -25,6 +28,7 @@ export default async function HomePage() {
           <div className="rounded-[1.75rem] border border-line bg-white/45 p-6">
             <p className="text-sm uppercase tracking-[0.24em] text-ink/55">Built For</p>
             <ul className="mt-4 space-y-3 text-base leading-7 text-ink/72">
+              <li>Clear authorship and academic attribution for Tal Yaron</li>
               <li>Academic citation via `CITATION.cff`</li>
               <li>Interactive MDX with React components</li>
               <li>GitHub-native issues, PRs, and Pages deployment</li>
