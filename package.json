@@ -14,6 +14,7 @@
     "validate": "npm run check:links && npm run check:citations && npm run lint"
   },
   "dependencies": {
+    "@mdxeditor/editor": "^3.52.4",
     "gray-matter": "^4.0.3",
     "katex": "^0.16.11",
     "next": "^15.0.0",

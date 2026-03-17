@@ -152,3 +152,29 @@ a {
   overflow-y: hidden;
   padding: 0.5rem 0;
 }
+
+.admin-editor-shell .mdxeditor {
+  overflow: hidden;
+  border-radius: 1.5rem;
+  border: 1px solid var(--line);
+  background: rgba(255, 252, 247, 0.92);
+}
+
+.admin-editor-shell .admin-prose {
+  min-height: 65vh;
+  padding: 1.5rem;
+}
+
+.admin-editor-shell .cm-editor,
+.admin-editor-shell .cm-scroller,
+.admin-editor-shell pre,
+.admin-editor-shell code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+@media (max-width: 768px) {
+  .admin-editor-shell .admin-prose {
+    min-height: 52vh;
+    padding: 1rem;
+  }
+}
