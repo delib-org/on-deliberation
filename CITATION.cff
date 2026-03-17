@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use or cite this living book, please cite it using the metadata below."
+title: "On Deliberation"
+type: book
+authors:
+  - family-names: "Yaron"
+    given-names: "Tal"
+abstract: "A living book on democratic coordination, collective reasoning, and the design of deliberative systems."
+version: "0.1.0"
+date-released: 2026-03-17
+repository-code: "https://github.com/delib-org/on-deliberation"
+url: "https://delib-org.github.io/on-deliberation"
+license: "CC-BY-4.0"
+keywords:
+  - democratic deliberation
+  - collective intelligence
+  - democratic coordination
+  - governance
+  - civic technology

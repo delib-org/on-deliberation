@@ -1,0 +1,48 @@
+# On Deliberation
+
+Docs-as-code scaffold for *On Deliberation* by Tal Yaron. The repository is structured as a "Living Book": manuscript chapters live as MDX files, academic metadata lives in `/data`, and the rendering plus validation logic lives in `/src`.
+
+## Folder Hierarchy
+
+```text
+.
+├── .github
+│   ├── ISSUE_TEMPLATE
+│   └── workflows
+├── chapters
+│   ├── en
+│   └── he
+├── data
+├── src
+│   ├── app
+│   ├── components
+│   ├── lib
+│   └── scripts
+├── CITATION.cff
+├── CONTRIBUTING.md
+└── package.json
+```
+
+## Architecture
+
+- `/chapters`: canonical manuscript source in MDX, organized by locale.
+- `/data`: book metadata, site configuration, and bibliographic records.
+- `/src/app`: Next.js App Router entry points and page shells.
+- `/src/components`: React UI and MDX-embeddable interactive components.
+- `/src/lib`: content loaders, MDX compilation, and helper utilities.
+- `/src/scripts`: CI validation scripts for internal links and citations.
+
+## Commands
+
+```bash
+npm install
+npm run dev
+npm run validate
+npm run build
+```
+
+## Deployment
+
+The sample workflow in `.github/workflows/deploy.yml` builds a static Next.js export and deploys it to GitHub Pages on every push to `main`. If you prefer Vercel, you can reuse the same content model and validation scripts, then replace the final deploy steps with Vercel's action or native Git integration.
+
+Default production assumptions in the scaffold point at the GitHub repository `delib-org/on-deliberation`.

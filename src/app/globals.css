@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #f3ede2;
+  --paper-strong: rgba(255, 250, 243, 0.84);
+  --ink: #1e2428;
+  --muted: #5b6470;
+  --accent: #9c4a36;
+  --accent-soft: #f1d0bf;
+  --line: rgba(30, 36, 40, 0.14);
+  --shadow: 0 24px 80px rgba(51, 36, 27, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(156, 74, 54, 0.18), transparent 30%),
+    radial-gradient(circle at top right, rgba(111, 140, 97, 0.12), transparent 28%),
+    linear-gradient(180deg, #f7f1e8 0%, #efe6d8 100%);
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+}
+
+a {
+  color: inherit;
+}
+
+.mesh-backdrop {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(circle at center, black 45%, transparent 100%);
+  opacity: 0.35;
+}
+
+.panel {
+  background: var(--paper-strong);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.book-prose {
+  font-size: 1.08rem;
+  line-height: 1.85;
+}
+
+.book-prose > :first-child {
+  margin-top: 0;
+}
+
+.book-prose h1,
+.book-prose h2,
+.book-prose h3,
+.book-prose h4 {
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.book-prose h1 {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  margin: 0 0 1.5rem;
+}
+
+.book-prose h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin: 3rem 0 1rem;
+}
+
+.book-prose h3 {
+  font-size: 1.3rem;
+  margin: 2.2rem 0 0.8rem;
+}
+
+.book-prose p,
+.book-prose ul,
+.book-prose ol,
+.book-prose blockquote {
+  margin: 1rem 0;
+}
+
+.book-prose ul,
+.book-prose ol {
+  padding-inline-start: 1.25rem;
+}
+
+.book-prose li + li {
+  margin-top: 0.4rem;
+}
+
+.book-prose blockquote {
+  border-inline-start: 4px solid var(--accent);
+  margin-inline: 0;
+  padding: 0.25rem 0 0.25rem 1rem;
+  color: var(--muted);
+}
+
+.book-prose code {
+  border-radius: 0.45rem;
+  background: rgba(30, 36, 40, 0.08);
+  padding: 0.15rem 0.4rem;
+  font-size: 0.95em;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+.book-prose pre {
+  overflow-x: auto;
+  border-radius: 1rem;
+  padding: 1rem 1.1rem;
+  background: rgba(30, 36, 40, 0.92);
+  color: #f8f5ef;
+}
+
+.book-prose pre code {
+  background: transparent;
+  padding: 0;
+}
+
+.book-prose a {
+  color: var(--accent);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+.book-prose hr {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+[dir="rtl"] .book-prose {
+  text-align: right;
+}
+
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.5rem 0;
+}

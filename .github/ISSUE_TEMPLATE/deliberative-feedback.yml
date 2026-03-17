@@ -1,0 +1,62 @@
+name: Deliberative Feedback
+description: Open a critique or reinforcement statement for a specific argument in the book.
+title: "[Feedback] "
+labels:
+  - feedback
+body:
+  - type: dropdown
+    id: statement_type
+    attributes:
+      label: Statement Type
+      description: Classify the contribution according to the book's deliberative framework.
+      options:
+        - Critique Statement
+        - Reinforcement Statement
+    validations:
+      required: true
+
+  - type: input
+    id: chapter_route
+    attributes:
+      label: Chapter Route
+      description: Provide the canonical route, for example `/en/introduction`.
+      placeholder: /en/introduction
+    validations:
+      required: true
+
+  - type: input
+    id: argument_target
+    attributes:
+      label: Target Argument or Heading
+      description: Point to the exact paragraph, heading, claim, or equation being discussed.
+      placeholder: "## The Consensus Score"
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: State the feedback in one concise paragraph.
+      placeholder: Describe the issue, support, or ambiguity as precisely as possible.
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence or Reasoning
+      description: Add sources, examples, counterexamples, or conceptual reasoning.
+      placeholder: Include citations, examples, or theoretical reasoning.
+    validations:
+      required: true
+
+  - type: textarea
+    id: refinement
+    attributes:
+      label: Proposed Refinement
+      description: If you already see a concrete edit, suggest it here.
+      placeholder: Suggested text, structural change, or bibliographic refinement.
+    validations:
+      required: false
+

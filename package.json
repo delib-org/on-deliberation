@@ -1,0 +1,40 @@
+{
+  "name": "on-deliberation",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Living book website for On Deliberation by Tal Yaron.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "serve out",
+    "lint": "next lint",
+    "check:links": "node src/scripts/check-links.mjs",
+    "check:citations": "node src/scripts/check-citations.mjs",
+    "validate": "npm run check:links && npm run check:citations && npm run lint"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "katex": "^0.16.11",
+    "next": "^15.0.0",
+    "next-mdx-remote": "^5.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-katex": "^7.0.1",
+    "rehype-slug": "^6.0.0",
+    "remark-gfm": "^4.0.0",
+    "remark-math": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.17.0",
+    "eslint-config-next": "^15.0.0",
+    "postcss": "^8.4.49",
+    "serve": "^14.2.4",
+    "tailwindcss": "^3.4.16",
+    "typescript": "^5.7.2"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "kant1781": {
+    "id": "kant1781",
+    "author": "Kant, Immanuel",
+    "year": "1781",
+    "title": "Critique of Pure Reason",
+    "publisher": "Johann Friedrich Hartknoch"
+  },
+  "popper1959": {
+    "id": "popper1959",
+    "author": "Popper, Karl",
+    "year": "1959",
+    "title": "The Logic of Scientific Discovery",
+    "publisher": "Hutchinson"
+  },
+  "ostrom1990": {
+    "id": "ostrom1990",
+    "author": "Ostrom, Elinor",
+    "year": "1990",
+    "title": "Governing the Commons",
+    "publisher": "Cambridge University Press"
+  },
+  "kahneman2011": {
+    "id": "kahneman2011",
+    "author": "Kahneman, Daniel",
+    "year": "2011",
+    "title": "Thinking, Fast and Slow",
+    "publisher": "Farrar, Straus and Giroux"
+  }
+}
+
