@@ -1,5 +1,11 @@
 # On Deliberation
 
+> ⚠️ **Work in Progress**  
+> This is an ongoing book currently being written.
+
+You can read it here:  
+👉 [On Deliberation](https://delib-org.github.io/on-deliberation/)
+
 Docs-as-code repository for *On Deliberation* by Tal Yaron. The repository is structured as a "Living Book": manuscript chapters live as MDX files, academic metadata lives in `/data`, and the rendering plus validation logic lives in `/src`.
 
 ## Folder Hierarchy
